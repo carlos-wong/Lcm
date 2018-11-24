@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ./mongodb_data:/data/db
+      - ./mongod.conf:/etc/mongod.conf
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+  server:
+    image: docker-koa:0.1
+    volumes:
+      - ./server_src:/app
+    depends_on:
+      - mongo
+    ports:
+      - "10066:10089"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
