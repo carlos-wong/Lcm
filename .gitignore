@@ -1,1 +1,7 @@
 server_src/node_modules
+mongodb_data
+react_src/README.md
+react_src/node_modules
+react_src/public
+react_src/yarn.lock
+server_src/.tern-port

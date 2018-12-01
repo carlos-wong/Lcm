@@ -24,3 +24,21 @@ services:
       options:
         max-size: "200k"
         max-file: "10"
+  react:
+    image: node:10.14-alpine
+    volumes:
+      - ./react_src:/app
+    working_dir: /app
+    depends_on:
+      - mongo
+      - server
+    command: ["npm", "run", "start"]
+    ports:
+      - "10030:3000"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+
