@@ -1,19 +1,13 @@
 var koa = require('koa');
-var app = koa();
+var app = new koa();
 
 // logger
 
-app.use(function *(next) {
+app.use(ctx=> {
   var start = new Date;
-  yield next;
   var ms = new Date - start;
-  console.log('%s %s - Response: %sms', this.method, this.url, ms);
+  ctx.body = 'Hello Koa:'+ms;
 });
 
 // response
-
-app.use(function *() {
-  this.body = 'Thanks for your ' + this.method + '\n';
-});
-
 app.listen(3000);

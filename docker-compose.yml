@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   mongo:
@@ -12,13 +12,13 @@ services:
         max-size: "200k"
         max-file: "10"
   server:
-    image: docker-koa:0.1
+    image: stevepacker/nodejs-supervisor:latest
     volumes:
       - ./server_src:/app
     depends_on:
       - mongo
     ports:
-      - "10066:10089"
+      - "10066:3000"
     logging:
       driver: "json-file"
       options:

@@ -1,20 +1,15 @@
 {
-  "name": "docker-koa",
-  "version": "0.0.0",
-  "description": "A Dockerized dev environment for Koa",
+  "name": "server_src",
+  "version": "1.0.0",
+  "description": "",
   "main": "app.js",
-  "repository": "https://github.com/tmlbl/docker-koa.git",
   "scripts": {
-    "test": "./test.sh"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "supervisor /app/app.js"
   },
-  "author": "Tim Lebel",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "koa": "^2.6.2"
-  },
-  "devDependencies": {
-    "chai": "^1.9.1",
-    "mocha": "^1.21.4",
-    "superagent": "^0.18.2"
   }
 }
